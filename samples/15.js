@@ -1,4 +1,5 @@
 // item 15. unportable scoping of block-local function declarations
+'use strict';
 
 function f() {
   return 'global';
@@ -6,14 +7,16 @@ function f() {
 
 function test(x){
 
-  function f() {
-    return 'local';
-  }
-
   var result = [];
+
   if (x) {
+    function f() {
+      return 'local';
+    }
+
     result.push(f());
   }
+
   result.push(f());
   return result;
 }
