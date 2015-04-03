@@ -47,7 +47,7 @@ function count() {
 
 `sum` was never initialized (i.e `var sum;`). The interpreter will implicitly create it on the global scope instead for you before it uses it.
 
-Using variables and polluting the global scope can result in unreliable code, susceptible changes outside of your control.
+Using variables and polluting the global scope can result in unreliable code; susceptible to changes outside of your control.
 
 ## Local Scope
 Anything defined within a `function` block.
