@@ -2,12 +2,12 @@
 ![scope](http://imgs.xkcd.com/comics/laser_scope.jpg)
 
 #### Outline
-- What is scope?
-- Global Scope
-- Local Scope
-- Function Scope
-- Lexical Scope
-- Scope Chain
+- [What is scope?](#what-the-hell-is-it?)
+- [Global Scope](#global-scope)
+- [Local Scope](#local-scope)
+- [Function Scope](#function-scope)
+- [Lexical Scope](#lexical-scope)
+- [The Scope Chain](#the-scope-chain)
 - ~~Closures~~
 - ~~This is that~~
 - ~~Best Practices~~
@@ -126,7 +126,7 @@ We understand the order of execution here, that's simple. However, each time we 
 
 Running this code would result in the nested functions being executed al the way down to the `fourth` function, at this point the scope chain would be, from top to bottom: fourth, third, second, first, global. The fourth would have access going all the way up.
 
-It gets even more more fun. Any look-up down is always happen from local traveling upwards to global. So if you have something like this:
+It gets even more more fun. Any look-up down is always happen from local scope traveling upwards to global. So if you have something like this:
 
 ```javascript
 var fed = 'eddie'
@@ -145,7 +145,7 @@ function first(){
 }
 first(); //output ralston
 ```
-You will get _ralston_ but you haven't changed the fed in global.
+You will get _ralston_ but you haven't changed the `fed` in global. What does this mean? If you have variables with the same name in different scopes, **the one resolved first will get used**.
 
 
 ## Best Practices
