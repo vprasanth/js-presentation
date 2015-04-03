@@ -10,7 +10,7 @@
 - [Function Scope](#function-scope)
 - [Lexical Scope](#lexical-scope)
 - [The Scope Chain](#the-scope-chain)
-- ~~Closures~~
+- ~~[Closures](#closures)~~
 - ~~This is that~~
 - ~~Best Practices~~
 - ~~Private/Public Scope~~
@@ -167,7 +167,7 @@ first(); //output ralston
 You will get _ralston_ but you haven't changed the `fed` in global. What does this mean? If you have variables with the same name in different scopes, the one resolved first will get used. **Local variables with the same name take precedence** (_they also hide the global variable with the same name_).
 
 ## Closures
-
+todo
 
 
 ## Best Practices
