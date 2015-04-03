@@ -1,5 +1,5 @@
 # Scope
-![scope](http://imgs.xkcd.com/comics/laser_scope.jpg)
+[![Scope](http://imgs.xkcd.com/comics/laser_scope.jpg)](https://xkcd.com/101/)
 
 #### Outline
 - [What is scope?](#what-the-hell-is-it?)
