@@ -166,13 +166,14 @@ first(); //output ralston
 You will get _ralston_ but you haven't changed the `fed` in global. What does this mean? If you have variables with the same name in different scopes, the one resolved first will get used. **Local variables with the same name take precedence** (_they also hide the global variable with the same name_).
 
 ## Closures
-Basically, whenever a function executes using a different scope chain than the one that was in effect when it was defined.
+Think of closures as a way for a function to refer to it's defined environment/scope chain when being invoked. Basically, functions execute using the scope chain they were defined in.
 
 ```javascript
-
+// global scope
 var scope = 'global scope';
 
 function checkScope(){
+  // checkScope scope
   var scope = 'local scope';
   function f(){
     return scope;
@@ -182,6 +183,43 @@ function checkScope(){
 
 checkScope(); // output: 'local scope'
 ```
+
+In this example it's easy to understand function `f()` executes in the same scope chain as it is defined, only the result is being returned. Now lets look at the next example.
+
+```javascript
+// global scope
+var scope = 'global scope';
+
+function checkScope(){
+  // checkScope scope
+  var scope = 'local scope';
+  function f(){
+    return scope;
+  }
+  return f;
+}
+
+checkScope()(); // the second () executes the returned function. i.e. f();
+```
+
+Notice now we are returning the function instead of invoking it and returning the result. Because functions execute using the scope chain that was in effect during definition and not invocation, the output here is actually `local scope`. The global `scope` variable had no effect on the function, interesting isn't it? Using closures is a common pattern in JavaScript; it is a great way to encapsulate data.
+
+What do you think the output for the next example is?
+
+```javascript
+function createFuncs() {
+  var funcs = [];
+  for(var i; i <10; i++){
+    funcs[i] = function(){return i;};
+  }
+  return funcs;
+}
+
+var funcs = createFuncs();
+funcs[5]() // what is the output?
+```
+
+
 
 
 ## Best Practices
