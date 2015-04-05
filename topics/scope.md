@@ -102,7 +102,7 @@ car(true); //output: model s
 JavaScript does **not** have block scope (Unless you're using ES6 and the `let` statement :D).
 
 ## Lexical Scope
-When you see functions within functions, the inner functions also have access to the variable scopes of the outer functions. This also means, functions are executed using the variable scope that was in effect when they were **defined**, not the variable scope in effect when they are invoked (more on this in [Closures](#closures)).
+Functions are executed using the variable scope that was in effect when they were **defined**, not the variable scope in effect when they are invoked (more on this in [Closures](#closures)). The inner functions also have access to the variable scopes of the outer functions.
 
 ```javascript
 var person = 'pv'; // using global scope here as an example
@@ -120,8 +120,7 @@ function a() {
 };
 ```
 
-Note. Lexical scoping does not resolve backwards. For exmaple: `b()` can access `person`, `cat`, and `dog`, but it does not have `snake` in its context, therefore it can not access it.
-
+Note. Variable resolution starts from local to global. For example: `b()` can access `person`, `cat`, and `dog`, but it does not have `snake` in its context, therefore it can not access it.
 
 ## The Scope Chain
 
@@ -167,7 +166,22 @@ first(); //output ralston
 You will get _ralston_ but you haven't changed the `fed` in global. What does this mean? If you have variables with the same name in different scopes, the one resolved first will get used. **Local variables with the same name take precedence** (_they also hide the global variable with the same name_).
 
 ## Closures
-todo
+Basically, whenever a function executes using a different scope chain than the one that was in effect when it was defined.
+
+```javascript
+
+var scope = 'global scope';
+
+function checkScope(){
+  var scope = 'local scope';
+  function f(){
+    return scope;
+  }
+  return f();
+}
+
+checkScope(); // output: 'local scope'
+```
 
 
 ## Best Practices
