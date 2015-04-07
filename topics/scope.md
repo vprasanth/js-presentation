@@ -219,6 +219,7 @@ var funcs = createFuncs();
 funcs[5]() // what is the output?
 ```
 
+It's 10. Why???!! 
 
 
 
