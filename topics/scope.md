@@ -11,7 +11,7 @@
 - [Lexical Scope](#lexical-scope)
 - [The Scope Chain](#the-scope-chain)
 - ~~[Closures](#closures)~~
-- ~~This is that~~
+- ~~This and that~~
 - ~~Best Practices~~
 - ~~Private/Public Scope~~
 
